@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "horses",
+  "info": {
+    "singularName": "horse",
+    "pluralName": "horses",
+    "displayName": "horse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
