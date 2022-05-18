@@ -41,7 +41,7 @@ export default function PageChange(props) {
           <CircularProgress className={classes.progress} />
         </div>
         <h4 className={classes.title}>
-          Chargement de la page: {props.path}
+          Chargement de la page...
         </h4>
       </div>
     </div>
