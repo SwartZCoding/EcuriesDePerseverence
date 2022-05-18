@@ -13,7 +13,7 @@ import styles from "assets/jss/nextjs-material-dashboard/components/snackbarCont
 export default function SnackbarContent(props) {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
-  const { message, color, close, icon, rtlActive } = props;
+  const { message, color, close, icon } = props;
   var action = [];
   const messageClasses = classNames({
     [classes.iconMessage]: icon !== undefined,

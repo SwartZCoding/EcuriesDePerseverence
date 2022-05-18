@@ -100,6 +100,5 @@ export default function Tasks(props) {
 Tasks.propTypes = {
   tasksIndexes: PropTypes.arrayOf(PropTypes.number),
   tasks: PropTypes.arrayOf(PropTypes.node),
-  rtlActive: PropTypes.bool,
   checkedIndexes: PropTypes.array,
 };
