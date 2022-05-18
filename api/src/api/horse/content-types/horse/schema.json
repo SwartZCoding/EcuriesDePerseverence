@@ -4,7 +4,8 @@
   "info": {
     "singularName": "horse",
     "pluralName": "horses",
-    "displayName": "horse"
+    "displayName": "horse",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,6 +13,22 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
+      "type": "string"
+    },
+    "Genre": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "weight": {
+      "type": "integer"
+    },
+    "Race": {
       "type": "string"
     }
   }

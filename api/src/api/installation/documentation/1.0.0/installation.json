@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/horses": {
+    "/installations": {
       "get": {
         "responses": {
           "200": {
@@ -23,22 +23,12 @@
                               "name": {
                                 "type": "string"
                               },
-                              "Genre": {
+                              "disponibility": {
                                 "type": "string",
                                 "enum": [
-                                  "Male",
-                                  "Female"
+                                  "Disponible",
+                                  "Non Disponible"
                                 ]
-                              },
-                              "birthday": {
-                                "type": "string",
-                                "format": "date"
-                              },
-                              "weight": {
-                                "type": "integer"
-                              },
-                              "Race": {
-                                "type": "string"
                               },
                               "createdAt": {
                                 "type": "string",
@@ -517,7 +507,7 @@
           }
         },
         "tags": [
-          "Horse"
+          "Installation"
         ],
         "parameters": [
           {
@@ -601,7 +591,7 @@
             }
           }
         ],
-        "operationId": "get/horses"
+        "operationId": "get/installations"
       },
       "post": {
         "responses": {
@@ -623,22 +613,12 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "disponibility": {
                               "type": "string",
                               "enum": [
-                                "Male",
-                                "Female"
+                                "Disponible",
+                                "Non Disponible"
                               ]
-                            },
-                            "birthday": {
-                              "type": "string",
-                              "format": "date"
-                            },
-                            "weight": {
-                              "type": "integer"
-                            },
-                            "Race": {
-                              "type": "string"
                             },
                             "createdAt": {
                               "type": "string",
@@ -1096,10 +1076,10 @@
           }
         },
         "tags": [
-          "Horse"
+          "Installation"
         ],
         "parameters": [],
-        "operationId": "post/horses",
+        "operationId": "post/installations",
         "requestBody": {
           "required": true,
           "content": {
@@ -1112,22 +1092,12 @@
                       "name": {
                         "type": "string"
                       },
-                      "Genre": {
+                      "disponibility": {
                         "type": "string",
                         "enum": [
-                          "Male",
-                          "Female"
+                          "Disponible",
+                          "Non Disponible"
                         ]
-                      },
-                      "birthday": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "weight": {
-                        "type": "integer"
-                      },
-                      "Race": {
-                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -1172,7 +1142,7 @@
         }
       }
     },
-    "/horses/{id}": {
+    "/installations/{id}": {
       "get": {
         "responses": {
           "200": {
@@ -1193,22 +1163,12 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "disponibility": {
                               "type": "string",
                               "enum": [
-                                "Male",
-                                "Female"
+                                "Disponible",
+                                "Non Disponible"
                               ]
-                            },
-                            "birthday": {
-                              "type": "string",
-                              "format": "date"
-                            },
-                            "weight": {
-                              "type": "integer"
-                            },
-                            "Race": {
-                              "type": "string"
                             },
                             "createdAt": {
                               "type": "string",
@@ -1666,7 +1626,7 @@
           }
         },
         "tags": [
-          "Horse"
+          "Installation"
         ],
         "parameters": [
           {
@@ -1680,7 +1640,7 @@
             }
           }
         ],
-        "operationId": "get/horses/{id}"
+        "operationId": "get/installations/{id}"
       },
       "put": {
         "responses": {
@@ -1702,22 +1662,12 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "disponibility": {
                               "type": "string",
                               "enum": [
-                                "Male",
-                                "Female"
+                                "Disponible",
+                                "Non Disponible"
                               ]
-                            },
-                            "birthday": {
-                              "type": "string",
-                              "format": "date"
-                            },
-                            "weight": {
-                              "type": "integer"
-                            },
-                            "Race": {
-                              "type": "string"
                             },
                             "createdAt": {
                               "type": "string",
@@ -2175,7 +2125,7 @@
           }
         },
         "tags": [
-          "Horse"
+          "Installation"
         ],
         "parameters": [
           {
@@ -2189,7 +2139,7 @@
             }
           }
         ],
-        "operationId": "put/horses/{id}",
+        "operationId": "put/installations/{id}",
         "requestBody": {
           "required": true,
           "content": {
@@ -2202,22 +2152,12 @@
                       "name": {
                         "type": "string"
                       },
-                      "Genre": {
+                      "disponibility": {
                         "type": "string",
                         "enum": [
-                          "Male",
-                          "Female"
+                          "Disponible",
+                          "Non Disponible"
                         ]
-                      },
-                      "birthday": {
-                        "type": "string",
-                        "format": "date"
-                      },
-                      "weight": {
-                        "type": "integer"
-                      },
-                      "Race": {
-                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -2421,7 +2361,7 @@
           }
         },
         "tags": [
-          "Horse"
+          "Installation"
         ],
         "parameters": [
           {
@@ -2435,7 +2375,7 @@
             }
           }
         ],
-        "operationId": "delete/horses/{id}"
+        "operationId": "delete/installations/{id}"
       }
     }
   }

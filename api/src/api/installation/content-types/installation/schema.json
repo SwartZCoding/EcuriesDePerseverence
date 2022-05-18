@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "installations",
+  "info": {
+    "singularName": "installation",
+    "pluralName": "installations",
+    "displayName": "Installation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "disponibility": {
+      "type": "enumeration",
+      "enum": [
+        "Disponible",
+        "Non Disponible"
+      ]
+    }
+  }
+}
