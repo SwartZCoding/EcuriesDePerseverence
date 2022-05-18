@@ -41,7 +41,7 @@ const styles = {
   },
 };
 
-function TableList() {
+function Pensionnaire() {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   return (
@@ -112,6 +112,6 @@ function TableList() {
   );
 }
 
-TableList.layout = Admin;
+Pensionnaire.layout = Admin;
 
-export default TableList;
+export default Pensionnaire;

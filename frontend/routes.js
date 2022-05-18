@@ -10,50 +10,36 @@ import Language from "@material-ui/icons/Language";
 const dashboardRoutes = [
     {
         path: "/dashboard",
-        name: "Dashboard",
+        name: "Accueil",
         icon: Dashboard,
 
         layout: "/admin",
     },
     {
-        path: "/user-profile",
-        name: "User Profile",
+        path: "/users",
+        name: "Utilisateurs",
         icon: Person,
 
         layout: "/admin",
     },
     {
-        path: "/table-list",
-        name: "Table List",
-        icon: "content_paste",
+        path: "/pensionnaire",
+        name: "Pensionnaires",
+        icon: Person,
 
         layout: "/admin",
     },
     {
-        path: "/typography",
-        name: "Typography",
-        icon: LibraryBooks,
-
-        layout: "/admin",
-    },
-    {
-        path: "/icons",
-        name: "Icons",
+        path: "/installations",
+        name: "Installations",
         icon: BubbleChart,
 
         layout: "/admin",
     },
     {
-        path: "/maps",
-        name: "Maps",
-        icon: LocationOn,
-
-        layout: "/admin",
-    },
-    {
-        path: "/notifications",
-        name: "Notifications",
-        icon: Notifications,
+        path: "/documents",
+        name: "Documents",
+        icon: LibraryBooks,
 
         layout: "/admin",
     },

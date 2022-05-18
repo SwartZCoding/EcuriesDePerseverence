@@ -36,7 +36,7 @@ const styles = {
   },
 };
 
-function UserProfile() {
+function AddUserPage() {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   return (
@@ -155,7 +155,7 @@ function UserProfile() {
         <GridItem xs={12} sm={12} md={4}>
           <Card profile>
             <CardAvatar profile>
-              <a href="frontend/pages/admin/user-profile#pablo" onClick={(e) => e.preventDefault()}>
+              <a href="frontend/pages/admin/add-user-page.js" onClick={(e) => e.preventDefault()}>
                 <img src={avatar} alt="..." />
               </a>
             </CardAvatar>
@@ -178,6 +178,6 @@ function UserProfile() {
   );
 }
 
-UserProfile.layout = Admin;
+AddUserPage.layout = Admin;
 
-export default UserProfile;
+export default AddUserPage;
