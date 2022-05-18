@@ -14,41 +14,14 @@ export default function Footer(props) {
   return (
     <footer className={classes.footer}>
       <div className={classes.container}>
-        <div className={classes.left}>
-          <List className={classes.list}>
-            <ListItem className={classes.inlineBlock}>
-              <a href="frontend/components/Footer/Footer#home" className={classes.block}>
-                Home
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="frontend/components/Footer/Footer#company" className={classes.block}>
-                Company
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="frontend/components/Footer/Footer#portfolio" className={classes.block}>
-                Portfolio
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="frontend/components/Footer/Footer#blog" className={classes.block}>
-                Blog
-              </a>
-            </ListItem>
-          </List>
-        </div>
         <p className={classes.right}>
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             <a
-              href="https://www.creative-tim.com?ref=njsmd-footer"
-              target="_blank"
               className={classes.a}
             >
-              Creative Tim
+              Ecurie de Persévère
             </a>
-            , made with love for a better web
           </span>
         </p>
       </div>
