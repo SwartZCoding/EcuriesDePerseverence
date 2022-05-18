@@ -68,7 +68,7 @@ export default function Sidebar(props) {
                   />
                 )}
                 <ListItemText
-                  primary=prop.name
+                  primary={prop.name}
                   className={classNames(classes.itemText, whiteFontClasses, {
                     [classes.itemTextRTL]: props.rtlActive,
                   })}
