@@ -30,7 +30,7 @@ const dashboardRoutes = [
         layout: "/admin",
     },
     {
-        path: "/installations",
+        path: "/install",
         name: "Installations",
         icon: BubbleChart,
 

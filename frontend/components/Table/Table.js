@@ -42,7 +42,9 @@ export default function CustomTable(props) {
                     <TableCell className={classes.tableCell} key={key}>
                       {prop}
                     </TableCell>
+
                   );
+
                 })}
               </TableRow>
             );
