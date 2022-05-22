@@ -10,6 +10,7 @@ import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import Link from "next/link";
 
 const styles = {
   cardCategoryWhite: {
@@ -50,7 +51,7 @@ function Pensionnaire() {
         <Card>
           <CardHeader color="primary">
             <h4 className={classes.cardTitleWhite}>Liste des Utilisateurs</h4>
-            <button className={""}>Ajouter un utilisateur</button>
+            <Link href="/admin/register/register-user" key="register-user">Ajouter un utilisateur</Link>
           </CardHeader>
           <CardBody>
             <Table
