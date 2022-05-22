@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // layout for this page
@@ -50,7 +51,7 @@ function Pensionnaire() {
                 <Card>
                     <CardHeader color="primary">
                         <h4 className={classes.cardTitleWhite}>Liste des Pensionnaires</h4>
-                        <button className={""}>Ajouter un pensionnaire</button>
+                        <Link href="/admin/register-pensionnaire" key="register-pensionnaire">Ajouter un pensionnaire</Link>
                     </CardHeader>
                     <CardBody>
                         <Table
