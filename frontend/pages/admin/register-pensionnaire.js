@@ -45,46 +45,13 @@ function AddUserPage() {
                 <GridItem xs={12} sm={12} md={8}>
                     <Card>
                         <CardHeader color="primary">
-                            <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
-                            <p className={classes.cardCategoryWhite}>Complete your profile</p>
+                            <h4 className={classes.cardTitleWhite}>Fiche Utilisateur</h4>
                         </CardHeader>
                         <CardBody>
                             <GridContainer>
-                                <GridItem xs={12} sm={12} md={5}>
-                                    <CustomInput
-                                        labelText="Company (disabled)"
-                                        id="company-disabled"
-                                        formControlProps={{
-                                            fullWidth: true,
-                                        }}
-                                        inputProps={{
-                                            disabled: true,
-                                        }}
-                                    />
-                                </GridItem>
-                                <GridItem xs={12} sm={12} md={3}>
-                                    <CustomInput
-                                        labelText="Username"
-                                        id="username"
-                                        formControlProps={{
-                                            fullWidth: true,
-                                        }}
-                                    />
-                                </GridItem>
-                                <GridItem xs={12} sm={12} md={4}>
-                                    <CustomInput
-                                        labelText="Email address"
-                                        id="email-address"
-                                        formControlProps={{
-                                            fullWidth: true,
-                                        }}
-                                    />
-                                </GridItem>
-                            </GridContainer>
-                            <GridContainer>
                                 <GridItem xs={12} sm={12} md={6}>
                                     <CustomInput
-                                        labelText="First Name"
+                                        labelText="Prénom"
                                         id="first-name"
                                         formControlProps={{
                                             fullWidth: true,
@@ -93,7 +60,7 @@ function AddUserPage() {
                                 </GridItem>
                                 <GridItem xs={12} sm={12} md={6}>
                                     <CustomInput
-                                        labelText="Last Name"
+                                        labelText="Nom de Famille"
                                         id="last-name"
                                         formControlProps={{
                                             fullWidth: true,
@@ -104,7 +71,38 @@ function AddUserPage() {
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={4}>
                                     <CustomInput
-                                        labelText="City"
+                                        labelText="Adresse Mail"
+                                        id="email-address"
+                                        formControlProps={{
+                                            fullWidth: true,
+                                        }}
+                                    />
+                                </GridItem>
+
+                                <GridItem xs={12} sm={12} md={4}>
+                                    <CustomInput
+                                        labelText="Mot de passe"
+                                        id="password"
+                                        formControlProps={{
+                                            fullWidth: true,
+                                        }}
+                                    />
+                                </GridItem>
+
+                                <GridItem xs={12} sm={12} md={4}>
+                                    <CustomInput
+                                        labelText="Numéro de Téléphone"
+                                        id="phone"
+                                        formControlProps={{
+                                            fullWidth: true,
+                                        }}
+                                    />
+                                </GridItem>
+                            </GridContainer>
+                            <GridContainer>
+                                <GridItem xs={12} sm={12} md={4}>
+                                    <CustomInput
+                                        labelText="Ville"
                                         id="city"
                                         formControlProps={{
                                             fullWidth: true,
@@ -113,7 +111,7 @@ function AddUserPage() {
                                 </GridItem>
                                 <GridItem xs={12} sm={12} md={4}>
                                     <CustomInput
-                                        labelText="Country"
+                                        labelText="Pays"
                                         id="country"
                                         formControlProps={{
                                             fullWidth: true,
@@ -122,7 +120,7 @@ function AddUserPage() {
                                 </GridItem>
                                 <GridItem xs={12} sm={12} md={4}>
                                     <CustomInput
-                                        labelText="Postal Code"
+                                        labelText="Code Postal"
                                         id="postal-code"
                                         formControlProps={{
                                             fullWidth: true,
@@ -130,47 +128,10 @@ function AddUserPage() {
                                     />
                                 </GridItem>
                             </GridContainer>
-                            <GridContainer>
-                                <GridItem xs={12} sm={12} md={12}>
-                                    <InputLabel style={{ color: "#AAAAAA" }}>About me</InputLabel>
-                                    <CustomInput
-                                        labelText="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
-                                        id="about-me"
-                                        formControlProps={{
-                                            fullWidth: true,
-                                        }}
-                                        inputProps={{
-                                            multiline: true,
-                                            rows: 5,
-                                        }}
-                                    />
-                                </GridItem>
-                            </GridContainer>
                         </CardBody>
                         <CardFooter>
-                            <Button color="primary">Update Profile</Button>
+                            <Button color="primary">Créer le compte</Button>
                         </CardFooter>
-                    </Card>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                    <Card profile>
-                        <CardAvatar profile>
-                            <a href="frontend/pages/admin/add-user-page.js" onClick={(e) => e.preventDefault()}>
-                                <img src={avatar} alt="..." />
-                            </a>
-                        </CardAvatar>
-                        <CardBody profile>
-                            <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6>
-                            <h4 className={classes.cardTitle}>Alec Thompson</h4>
-                            <p className={classes.description}>
-                                Don{"'"}t be scared of the truth because we need to restart the
-                                human foundation in truth And I love you like Kanye loves Kanye
-                                I love Rick Owens’ bed design but the back is...
-                            </p>
-                            <Button color="primary" round>
-                                Follow
-                            </Button>
-                        </CardBody>
                     </Card>
                 </GridItem>
             </GridContainer>
