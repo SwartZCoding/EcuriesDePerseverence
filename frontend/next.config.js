@@ -12,8 +12,15 @@ const path = require("path");
 
 module.exports = withPlugins([[withSass], [withImages], [withCSS]], {
   webpack(config, options) {
+    // Fixes npm packages that depend on `fs` module
+    config.node = {
+      fs: "empty"
+    }
     config.resolve.modules.push(path.resolve("./"));
     return config;
   },
-});
 
+  env: {
+    STRAPI_CLIENT_URL: "http://localhost:1337/api/",
+  },
+});
