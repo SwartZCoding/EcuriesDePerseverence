@@ -38,7 +38,7 @@ function Login() {
 
 		const loginResponse = await login.json();
 
-		console.log("connected");
+		console.log(loginInfo);
 
 		// return userService.login(username, password)
 		// 	.then(() => {
