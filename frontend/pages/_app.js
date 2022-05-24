@@ -24,6 +24,7 @@ import Router from "next/router";
 import PageChange from "components/PageChange/PageChange.js";
 
 import "assets/css/nextjs-material-dashboard.css?v=1.1.0";
+import "styles/global.css"
 import {redirect} from "next/dist/next-server/server/api-utils";
 
 Router.events.on("routeChangeStart", (url) => {

@@ -50,23 +50,25 @@ function Login() {
 	}
 
 	return (
-		<div className="card">
-			<h4 className="">Login</h4>
-			<div className="">
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<div className="">
-						<label>Username</label>
-						<input name="username" type="text" {...register('username')}/>
-					</div>
-					<div className="form-group">
-						<label>Password</label>
-						<input name="password" type="password" {...register('password')}/>
-					</div>
-					<button disabled={formState.isSubmitting} className="btn btn-primary">
-						{formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-						Login
-					</button>
-				</form>
+		<div className="h-screen w-screen flex flex-col items-center justify-around">
+			<div className="card">
+				<h4 className="">Login</h4>
+				<div className="">
+					<form onSubmit={handleSubmit(onSubmit)}>
+						<div className="">
+							<label>Username</label>
+							<input name="username" type="text" {...register('username')}/>
+						</div>
+						<div className="form-group">
+							<label>Password</label>
+							<input name="password" type="password" {...register('password')}/>
+						</div>
+						<button disabled={formState.isSubmitting} className="btn btn-primary">
+							{formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+							Login
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	);
