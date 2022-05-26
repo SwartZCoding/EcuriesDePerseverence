@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-05-23T07:02:11.492Z"
+    "x-generation-date": "2022-05-25T14:03:40.727Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -73,7 +73,7 @@
                               "name": {
                                 "type": "string"
                               },
-                              "Genre": {
+                              "genre": {
                                 "type": "string",
                                 "enum": [
                                   "Male",
@@ -87,7 +87,7 @@
                               "weight": {
                                 "type": "integer"
                               },
-                              "Race": {
+                              "race": {
                                 "type": "string"
                               },
                               "createdAt": {
@@ -673,7 +673,7 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "genre": {
                               "type": "string",
                               "enum": [
                                 "Male",
@@ -687,7 +687,7 @@
                             "weight": {
                               "type": "integer"
                             },
-                            "Race": {
+                            "race": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -1162,7 +1162,7 @@
                       "name": {
                         "type": "string"
                       },
-                      "Genre": {
+                      "genre": {
                         "type": "string",
                         "enum": [
                           "Male",
@@ -1176,7 +1176,7 @@
                       "weight": {
                         "type": "integer"
                       },
-                      "Race": {
+                      "race": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -1243,7 +1243,7 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "genre": {
                               "type": "string",
                               "enum": [
                                 "Male",
@@ -1257,7 +1257,7 @@
                             "weight": {
                               "type": "integer"
                             },
-                            "Race": {
+                            "race": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -1752,7 +1752,7 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "genre": {
                               "type": "string",
                               "enum": [
                                 "Male",
@@ -1766,7 +1766,7 @@
                             "weight": {
                               "type": "integer"
                             },
-                            "Race": {
+                            "race": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -2252,7 +2252,7 @@
                       "name": {
                         "type": "string"
                       },
-                      "Genre": {
+                      "genre": {
                         "type": "string",
                         "enum": [
                           "Male",
@@ -2266,7 +2266,7 @@
                       "weight": {
                         "type": "integer"
                       },
-                      "Race": {
+                      "race": {
                         "type": "string"
                       },
                       "createdAt": {

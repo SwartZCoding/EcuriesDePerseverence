@@ -11,6 +11,8 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import Link from "next/link";
+import StrapiClient from "../../lib/strapi-client";
+import { useRouter } from "next/router";
 
 const styles = {
   cardCategoryWhite: {
@@ -42,7 +44,8 @@ const styles = {
   },
 };
 
-function Pensionnaire() {
+function Pensionnaire({ data }) {
+  const router = useRouter();
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   return (
@@ -56,21 +59,26 @@ function Pensionnaire() {
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Nom", "Prénom", "Rôle", "Email", "Numéro de téléphone"]}
-              tableData={[
-                ["Dakota Rice", "Niger", "Admin", "test@gmail.com", "0606060606"],
-                ["Minerva Hooper", "Curaçao", "Professionnel", "test@gmail.com", "0606060606"],
-                ["Sage Rodriguez", "Netherlands", "Professionnel", "test@gmail.com", "0606060606"],
-                ["Philip Chaney", "Korea, South", "Utilisateur", "test@gmail.com", "0606060606"],
-                ["Doris Greene", "Malawi", "Utilisateur", "test@gmail.com", "0606060606"],
-                ["Mason Porter", "Chile", "Utilisateur", "test@gmail.com", "0606060606"],
-              ]}
+              tableHead={["Prénom", "Nom", "Rôle", "Email", "Numéro de téléphone"]}
+              tableData={data}
             />
           </CardBody>
         </Card>
       </GridItem>
     </GridContainer>
   );
+}
+
+export async function getServerSideProps(context) {
+  const client = new StrapiClient();
+  const users = await client.fetchData("/users");
+  console.log(users);
+  let data = [];
+  for (let i in users) {
+    data.push([users[i].firstName, users[i].lastName, users[i].role.name, users[i].email, users[i].phone]);
+  }
+  console.log(data);
+  return { props: { data } };
 }
 
 Pensionnaire.layout = Admin;

@@ -63,13 +63,13 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "phone": {
-      "type": "integer"
-    },
     "lastName": {
       "type": "string"
     },
     "firstName": {
+      "type": "string"
+    },
+    "phone": {
       "type": "string"
     }
   }

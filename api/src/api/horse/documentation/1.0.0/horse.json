@@ -23,7 +23,7 @@
                               "name": {
                                 "type": "string"
                               },
-                              "Genre": {
+                              "genre": {
                                 "type": "string",
                                 "enum": [
                                   "Male",
@@ -37,7 +37,7 @@
                               "weight": {
                                 "type": "integer"
                               },
-                              "Race": {
+                              "race": {
                                 "type": "string"
                               },
                               "createdAt": {
@@ -623,7 +623,7 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "genre": {
                               "type": "string",
                               "enum": [
                                 "Male",
@@ -637,7 +637,7 @@
                             "weight": {
                               "type": "integer"
                             },
-                            "Race": {
+                            "race": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -1112,7 +1112,7 @@
                       "name": {
                         "type": "string"
                       },
-                      "Genre": {
+                      "genre": {
                         "type": "string",
                         "enum": [
                           "Male",
@@ -1126,7 +1126,7 @@
                       "weight": {
                         "type": "integer"
                       },
-                      "Race": {
+                      "race": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -1193,7 +1193,7 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "genre": {
                               "type": "string",
                               "enum": [
                                 "Male",
@@ -1207,7 +1207,7 @@
                             "weight": {
                               "type": "integer"
                             },
-                            "Race": {
+                            "race": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -1702,7 +1702,7 @@
                             "name": {
                               "type": "string"
                             },
-                            "Genre": {
+                            "genre": {
                               "type": "string",
                               "enum": [
                                 "Male",
@@ -1716,7 +1716,7 @@
                             "weight": {
                               "type": "integer"
                             },
-                            "Race": {
+                            "race": {
                               "type": "string"
                             },
                             "createdAt": {
@@ -2202,7 +2202,7 @@
                       "name": {
                         "type": "string"
                       },
-                      "Genre": {
+                      "genre": {
                         "type": "string",
                         "enum": [
                           "Male",
@@ -2216,7 +2216,7 @@
                       "weight": {
                         "type": "integer"
                       },
-                      "Race": {
+                      "race": {
                         "type": "string"
                       },
                       "createdAt": {

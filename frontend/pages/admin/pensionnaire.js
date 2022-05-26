@@ -11,6 +11,7 @@ import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import StrapiClient from "../../lib/strapi-client";
 
 const styles = {
     cardCategoryWhite: {
@@ -42,7 +43,7 @@ const styles = {
     },
 };
 
-function Pensionnaire() {
+function Pensionnaire({ data }) {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
     return (
@@ -57,20 +58,25 @@ function Pensionnaire() {
                         <Table
                             tableHeaderColor="primary"
                             tableHead={["Nom", "Sexe", "Date de naissance", "Poids", "Race"]}
-                            tableData={[
-                                ["Dakota Rice", "Male", "02/06/96", "95Kg", "Shire"],
-                                ["Minerva Hooper", "Male", "02/06/96", "95Kg", "Shire"],
-                                ["Sage Rodriguez", "Male", "02/06/96", "95Kg", "Shire"],
-                                ["Philip Chaney", "Femelle", "02/06/96", "95Kg", "Shire"],
-                                ["Doris Greene", "Femelle", "02/06/96", "95Kg", "Shire"],
-                                ["Mason Porter", "Femelle", "02/06/96", "95Kg", "Shire"],
-                            ]}
+                            tableData={data}
                         />
                     </CardBody>
                 </Card>
             </GridItem>
         </GridContainer>
     );
+}
+
+export async function getServerSideProps(context) {
+    const client = new StrapiClient();
+    const horses = await client.fetchData("/horses");
+    console.log(horses);
+    let data = [];
+    for (let i in horses.data) {
+        data.push([horses.data[i].attributes.name, horses.data[i].attributes.genre, horses.data[i].attributes.birthday, horses.data[i].attributes.weight + " kg", horses.data[i].attributes.race]);
+    }
+    console.log(data);
+    return { props: { data } };
 }
 
 Pensionnaire.layout = Admin;

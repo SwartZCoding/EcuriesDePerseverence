@@ -15,7 +15,7 @@
     "name": {
       "type": "string"
     },
-    "Genre": {
+    "genre": {
       "type": "enumeration",
       "enum": [
         "Male",
@@ -28,7 +28,7 @@
     "weight": {
       "type": "integer"
     },
-    "Race": {
+    "race": {
       "type": "string"
     }
   }

@@ -78,14 +78,14 @@ export default class MyApp extends App {
     let pageProps = {};
     let jwt = true
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
     if(!jwt) {
       if (ctx.pathname !== "/login") {
         this.redirectUser(ctx, "/login")
       }
+    }
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
     }
 
     return { pageProps };
