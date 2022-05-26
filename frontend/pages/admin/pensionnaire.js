@@ -70,12 +70,16 @@ function Pensionnaire({ data }) {
 export async function getServerSideProps(context) {
     const client = new StrapiClient();
     const horses = await client.fetchData("/horses");
-    console.log(horses);
+    const nothing = "Aucune donnée";
     let data = [];
     for (let i in horses.data) {
         data.push([horses.data[i].attributes.name, horses.data[i].attributes.genre, horses.data[i].attributes.birthday, horses.data[i].attributes.weight + " kg", horses.data[i].attributes.race]);
     }
-    console.log(data);
+
+    if(data.length === 0) {
+        data.push([nothing, nothing, nothing, nothing, nothing]);
+    }
+
     return { props: { data } };
 }
 
