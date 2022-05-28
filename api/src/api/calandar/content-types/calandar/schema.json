@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "calandars",
+  "info": {
+    "singularName": "calandar",
+    "pluralName": "calandars",
+    "displayName": "Calandar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "eventName": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
