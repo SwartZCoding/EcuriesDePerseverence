@@ -21,6 +21,6 @@ module.exports = withPlugins([[withSass], [withImages], [withCSS]], {
   },
 
   env: {
-    STRAPI_CLIENT_URL: "http://localhost:1337",
+    STRAPI_CLIENT_URL: "http://localhost:1337/api",
   },
 });
