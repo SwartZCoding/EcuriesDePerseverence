@@ -1,8 +1,15 @@
 import axios from 'axios';
 import {useState} from "react";
 import { parseCookies, setCookie }  from 'nookies'
+import styles from "assets/jss/nextjs-material-dashboard/views/dashboardStyle.js";
+import {makeStyles} from "@material-ui/core/styles";
+import logo from "assets/img/logo.webp";
 
 const Login = () => {
+
+	const useStyles = makeStyles(styles);
+	const classes = useStyles();
+
 	const [userData, setUserData] = useState({
 		identifier: '',
 		password: '',
@@ -11,7 +18,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		
-		await axios.post(`${process.env.STRAPI_CLIENT_URL}/api/auth/local`, userData)
+		await axios.post(`${process.env.STRAPI_CLIENT_URL}/auth/local`, userData)
 			.then((response) => {
 				console.log('Well done!');
 				console.log('User profile', response.data.user);
@@ -32,91 +39,63 @@ const Login = () => {
 		const { name, value } = e.target;
 		setUserData({...userData, [name]: value });
 	}
-	
+
 	return (
-		<form onSubmit={handleSubmit}>
-			<label>
-				Utilisateur :
-				<input type="text" name="identifier" onChange={e => handleChange(e)} />
-			</label>
-			<br />
-			<label>
-				Mot de Passe :
-				<input type="password" name="password" onChange={e => handleChange(e)} />
-			</label>
-			<br />
-			<button>Se connecter</button>
-		</form>
+		<div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+			<div className="max-w-md w-full space-y-8">
+				<img
+					className="mx-auto w-auto"
+					src={logo}
+					alt="logo"
+				/>
+
+					<h2 className="mt-6 text-center text-3xl text-gray-900">Connectez-vous à votre espace administrateur !</h2>
+				<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+					<div className="rounded-md shadow-sm -space-y-px">
+						<div>
+							<label htmlFor="email-address" className="sr-only">
+								Email address
+							</label>
+							<input
+								id="email-address"
+								name="email"
+								type="email"
+								onChange={e => handleChange(e)}
+								autoComplete="email"
+								required
+								className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+								placeholder="Adresse Email"
+							/>
+						</div>
+						<div>
+							<label htmlFor="password" className="sr-only">
+								Mot de passe
+							</label>
+							<input
+								id="password"
+								name="password"
+								type="password"
+								onChange={e => handleChange(e)}
+								autoComplete="current-password"
+								required
+								className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+								placeholder="Mot de passe"
+							/>
+						</div>
+					</div>
+
+					<div>
+						<button
+							type="submit"
+							className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+						>
+							Se connecter
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	)
 }
 
 export default Login;
-
-// import {useRouter} from 'next/router';
-// import {useForm} from 'react-hook-form';
-// import {yupResolver} from '@hookform/resolvers/yup';
-// import * as Yup from 'yup';
-//
-// export default Login;
-//
-// function Login() {
-// 	const router = useRouter();
-//
-// 	// form validation rules
-// 	const validationSchema = Yup.object().shape({
-// 		username: Yup.string().required('Username is required'),
-// 		password: Yup.string().required('Password is required')
-// 	});
-// 	const formOptions = {resolver: yupResolver(validationSchema)};
-//
-// 	// get functions to build form with useForm() hook
-// 	const {register, handleSubmit, formState} = useForm(formOptions);
-// 	const {errors} = formState;
-//
-// 	async function onSubmit({username, password}) {
-// 		const loginInfo = {
-// 			identifier: username,
-// 			password: password
-// 		}
-//
-//
-// 		let StrapiUrl = process.env.STRAPI_CLIENT_URL;
-// 		const login = await fetch(`${StrapiUrl}/auth/local`, {
-// 			method: "POST",
-// 			headers: {
-// 				'Accept': 'application/json',
-// 				'Content-Type': 'application/json'
-// 			},
-// 			body: JSON.stringify(loginInfo)
-// 		})
-//
-// 		const loginResponse = await login.json();
-//
-// 		console.log(loginInfo);
-//
-// 	}
-//
-// 	return (
-// 		<div className="h-screen w-screen flex flex-col items-center justify-around">
-// 			<div className="card">
-// 				<h4 className="">Login</h4>
-// 				<div className="">
-// 					<form onSubmit={handleSubmit(onSubmit)}>
-// 						<div className="">
-// 							<label>Username</label>
-// 							<input name="username" type="text" {...register('username')}/>
-// 						</div>
-// 						<div className="form-group">
-// 							<label>Password</label>
-// 							<input name="password" type="password" {...register('password')}/>
-// 						</div>
-// 						<button disabled={formState.isSubmitting} className="btn btn-primary">
-// 							{formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-// 							Login
-// 						</button>
-// 					</form>
-// 				</div>
-// 			</div>
-// 		</div>
-// 	);
-// }

@@ -8,6 +8,7 @@ import PageChange from "components/PageChange/PageChange.js";
 
 import "assets/css/nextjs-material-dashboard.css?v=1.1.0";
 import "styles/global.css"
+import "styles/input.css"
 import {redirect} from "next/dist/next-server/server/api-utils";
 import {parseCookies} from "nookies";
 
@@ -46,13 +47,13 @@ export default class MyApp extends App {
   }
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
-    const jwt = parseCookies(ctx).jwt
-
-    if(!jwt) {
-      if (ctx.pathname !== "/login") {
-        this.redirectUser(ctx, "/login")
-      }
-    }
+    // const jwt = parseCookies(ctx).jwt
+    //
+    // if(!jwt) {
+    //   if (ctx.pathname !== "/login") {
+    //     this.redirectUser(ctx, "/login")
+    //   }
+    // }
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);

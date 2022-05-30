@@ -16,6 +16,8 @@
     "@hookform/resolvers": "^2.8.10",
     "@material-ui/core": "4.11.3",
     "@material-ui/icons": "4.11.2",
+    "@tailwindcss/forms": "^0.5.2",
+    "@types/react": "^18.0.9",
     "@zeit/next-css": "1.0.1",
     "@zeit/next-sass": "1.0.1",
     "axios": "^0.27.2",
