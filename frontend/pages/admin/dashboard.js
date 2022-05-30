@@ -99,11 +99,11 @@ function Dashboard({ horsesCount, usersCount, installCount }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(ctx) {
   const client = new StrapiClient();
-  const horses = await client.fetchData("/horses");
-  const users = await client.fetchData("/users")
-  const install = await client.fetchData("/installations")
+  const horses = await client.fetchData(ctx, "/horses");
+  const users = await client.fetchData(ctx, "/users")
+  const install = await client.fetchData(ctx, "/installations")
   let horsesCount = horses.data.length;
   let usersCount = users.length;
   let installCount = install.data.length;

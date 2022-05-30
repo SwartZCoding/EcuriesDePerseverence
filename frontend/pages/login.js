@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {useState} from "react";
-import { parseCookies, setCookie }  from 'nookies'
+import {nookies, parseCookies, setCookie} from 'nookies'
 import styles from "assets/jss/nextjs-material-dashboard/views/dashboardStyle.js";
 import {makeStyles} from "@material-ui/core/styles";
 import logo from "assets/img/logo.webp";
 
-const Login = () => {
+const Login = (ctx) => {
 
 	const useStyles = makeStyles(styles);
 	const classes = useStyles();
@@ -23,7 +23,7 @@ const Login = () => {
 				console.log('Well done!');
 				console.log('User profile', response.data.user);
 				console.log('User token', response.data.jwt);
-				setCookie(null, 'jwt_ecuries', response.data.jwt, {
+				nookies.set(ctx, 'jwt_ecuries', response.data.jwt, {
 					// httpOnly: true,
 					maxAge: 7 * 24 * 60 * 60,
 					path: '/',
@@ -96,6 +96,10 @@ const Login = () => {
 			</div>
 		</div>
 	)
+}
+
+export async function getServerSideProps(ctx) {
+
 }
 
 export default Login;
