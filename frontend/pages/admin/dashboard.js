@@ -21,19 +21,21 @@ import Admin from "layouts/Admin.js";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardFooter from "components/Card/CardFooter.js";
 
-import { bugs, website, server } from "variables/general.js";
-
 import styles from "assets/jss/nextjs-material-dashboard/views/dashboardStyle.js";
-import Calendar from "../../components/Calendar/Calendar";
+import StrapiClient from "../../lib/strapi-client";
 
-function Dashboard() {
+import dynamic from 'next/dynamic';
+
+const Calendar = dynamic(() => import("../../components/Calendar/Calendar.js"), {
+  ssr: false
+});
+
+function Dashboard({ horsesCount, usersCount, installCount }) {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   return (
@@ -41,31 +43,12 @@ function Dashboard() {
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
-                <Icon>content_copy</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Stockage utilisé - (Documents)</p>
-              <h3 className={classes.cardTitle}>
-                49/50 <small>GB</small>
-              </h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <DateRange />
-                A ce jour
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
             <CardHeader color="dark" stats icon>
               <CardIcon color="dark">
-                <Store />
+                <Accessibility />
               </CardIcon>
               <p className={classes.cardCategory}>Pensionnaires</p>
-              <h3 className={classes.cardTitle}>6</h3>
+              <h3 className={classes.cardTitle}>{horsesCount}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -82,7 +65,25 @@ function Dashboard() {
                 <Accessibility />
               </CardIcon>
               <p className={classes.cardCategory}>Utilisateurs</p>
-              <h3 className={classes.cardTitle}>6</h3>
+              <h3 className={classes.cardTitle}>{usersCount}</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <DateRange />
+                A ce jour
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="dark" stats icon>
+              <CardIcon color="dark">
+                <Store />
+              </CardIcon>
+              <p className={classes.cardCategory}>Installations</p>
+              <h3 className={classes.cardTitle}>{installCount}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -96,6 +97,19 @@ function Dashboard() {
       <Calendar/>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const client = new StrapiClient();
+  const horses = await client.fetchData("/horses");
+  const users = await client.fetchData("/users")
+  const install = await client.fetchData("/installations")
+  let horsesCount = horses.data.length;
+  let usersCount = users.length;
+  let installCount = install.data.length;
+
+
+  return { props: { horsesCount, usersCount, installCount } };
 }
 
 Dashboard.layout = Admin;

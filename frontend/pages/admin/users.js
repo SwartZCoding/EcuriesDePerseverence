@@ -71,13 +71,17 @@ function Pensionnaire({ data }) {
 
 export async function getServerSideProps(ctx) {
   const client = new StrapiClient();
-  const users = await client.fetchData("/api/users");
-  console.log(users);
+  const users = await client.fetchData("/users");
+  const nothing = "Aucune donnée";
   let data = [];
   for (let i in users) {
-    data.push([users[i].firstName, users[i].lastName, users[i].role.name, users[i].email, users[i].phone]);
+      data.push([users[i].firstName, users[i].lastName, users[i].role.name, users[i].email, users[i].phone]);
+    }
+
+  if(data.length === 0) {
+    data.push([nothing, nothing, nothing, nothing, nothing]);
   }
-  console.log(data);
+
   return { props: { data } };
 }
 

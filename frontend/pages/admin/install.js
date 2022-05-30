@@ -11,6 +11,7 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import Link from "next/link";
+import StrapiClient from "../../lib/strapi-client";
 
 const styles = {
     cardCategoryWhite: {
@@ -42,7 +43,7 @@ const styles = {
     },
 };
 
-function Pensionnaire() {
+function Installations({ data }) {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
     return (
@@ -57,14 +58,7 @@ function Pensionnaire() {
                         <Table
                             tableHeaderColor="primary"
                             tableHead={["Nom", "Disponibilité"]}
-                            tableData={[
-                                ["Box #1", "Disponible"],
-                                ["Box #2", "Disponible"],
-                                ["Box #3", "Non Disponible"],
-                                ["Box #4", "Disponible"],
-                                ["Box #5", "Non Disponible"],
-                                ["Box #6", "Non Disponible"],
-                            ]}
+                            tableData={data}
                         />
                     </CardBody>
                 </Card>
@@ -73,6 +67,23 @@ function Pensionnaire() {
     );
 }
 
-Pensionnaire.layout = Admin;
+export async function getServerSideProps(context) {
+    const client = new StrapiClient();
+    const install = await client.fetchData("/installations");
+    console.log(install);
+    const nothing = "Aucune donnée";
+    let data = [];
+    for (let i in install.data) {
+        data.push([install.data[i].attributes.name, install.data[i].attributes.disponibility]);
+    }
 
-export default Pensionnaire;
+    if(data.length === 0) {
+        data.push([nothing, nothing]);
+    }
+
+    return { props: { data } };
+}
+
+Installations.layout = Admin;
+
+export default Installations;
