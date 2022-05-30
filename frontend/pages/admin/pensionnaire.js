@@ -69,7 +69,7 @@ function Pensionnaire({ data }) {
 
 export async function getServerSideProps(context) {
     const client = new StrapiClient();
-    const horses = await client.fetchData("/horses");
+    const horses = await client.fetchData("/api/horses");
     console.log(horses);
     let data = [];
     for (let i in horses.data) {

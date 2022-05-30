@@ -26,6 +26,7 @@ import PageChange from "components/PageChange/PageChange.js";
 import "assets/css/nextjs-material-dashboard.css?v=1.1.0";
 import "styles/global.css"
 import {redirect} from "next/dist/next-server/server/api-utils";
+import {parseCookies} from "nookies";
 
 Router.events.on("routeChangeStart", (url) => {
   console.log(`Loading: ${url}`);
@@ -76,7 +77,7 @@ export default class MyApp extends App {
   }
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
-    let jwt = true
+    const jwt = parseCookies(ctx).jwt
 
     if(!jwt) {
       if (ctx.pathname !== "/login") {
