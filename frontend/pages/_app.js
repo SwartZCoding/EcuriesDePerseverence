@@ -47,7 +47,7 @@ export default class MyApp extends App {
   }
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
-    // const jwt = parseCookies(ctx).jwt
+    // const jwt = parseCookies(ctx)["jwt_ecuries"]
     //
     // if(!jwt) {
     //   if (ctx.pathname !== "/login") {

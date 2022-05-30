@@ -23,7 +23,7 @@ const Login = () => {
 				console.log('Well done!');
 				console.log('User profile', response.data.user);
 				console.log('User token', response.data.jwt);
-				setCookie(null, 'jwt', response.data.jwt, {
+				setCookie(null, 'jwt_ecuries', response.data.jwt, {
 					// httpOnly: true,
 					maxAge: 7 * 24 * 60 * 60,
 					path: '/',

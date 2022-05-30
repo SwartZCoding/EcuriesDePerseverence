@@ -6,11 +6,12 @@ export default class StrapiClient {
 	}
 
 	async fetchData(path) {
-		const cookies = parseCookies()
+		const jwt = parseCookies(null)["jwt_ecuries"]
+		console.log(`cookies : ${jwt}`)
 		const { data } = await axios.get(`${process.env.STRAPI_CLIENT_URL}${path}`, {
 			headers: {
 				Authorization:
-					`Bearer ${parseCookies(null, cookies.jwt)}`,
+					`Bearer ${jwt}`,
 			},
 		});
 		return data;
