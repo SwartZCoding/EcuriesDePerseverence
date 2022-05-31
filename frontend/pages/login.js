@@ -23,7 +23,7 @@ const Login = (ctx) => {
 				console.log('Well done!');
 				console.log('User profile', response.data.user);
 				console.log('User token', response.data.jwt);
-				nookies.set(ctx, 'jwt_ecuries', response.data.jwt, {
+				setCookie(null, 'jwt_ecuries', response.data.jwt, {
 					// httpOnly: true,
 					maxAge: 7 * 24 * 60 * 60,
 					path: '/',
@@ -58,7 +58,7 @@ const Login = (ctx) => {
 							</label>
 							<input
 								id="email-address"
-								name="email"
+								name="identifier"
 								type="email"
 								onChange={e => handleChange(e)}
 								autoComplete="email"
@@ -96,10 +96,6 @@ const Login = (ctx) => {
 			</div>
 		</div>
 	)
-}
-
-export async function getServerSideProps(ctx) {
-
 }
 
 export default Login;

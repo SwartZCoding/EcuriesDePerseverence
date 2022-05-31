@@ -37,23 +37,23 @@ export default class MyApp extends App {
     document.insertBefore(comment, document.documentElement);
   }
 
-  static redirectUser(ctx, location) {
-    if (ctx.req) {
-      ctx.res.WriteHead(302, { Location: location});
-      ctx.res.end();
-    } else {
-      Router.push(location);
+  static redirectUser(ctx, response, request, location) {
+    if (request) {
+      response.writeHead(301, {
+        Location: location
+      });
+      response.end();
     }
+    
+    return {};
   }
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
-    // const jwt = parseCookies(ctx)["jwt_ecuries"]
-    //
-    // if(!jwt) {
-    //   if (ctx.pathname !== "/login") {
-    //     this.redirectUser(ctx, "/login")
-    //   }
-    // }
+    const cookies = parseCookies(ctx)
+    console.log("cookies : ", cookies, "\nRoute : ", router.pathname)
+    if(cookies.jwt_ecuries === undefined && router.pathname !== "/login") {
+        this.redirectUser(ctx, ctx.res, ctx.req, "/login")
+    }
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
