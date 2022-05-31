@@ -16,7 +16,6 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
 import avatar from "assets/img/faces/marc.jpg";
-import Install from "../install";
 
 const styles = {
     cardCategoryWhite: {
@@ -37,7 +36,7 @@ const styles = {
     },
 };
 
-function AddUserPage() {
+function Install() {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
     return (
@@ -46,7 +45,7 @@ function AddUserPage() {
                 <GridItem xs={12} sm={12} md={8}>
                     <Card>
                         <CardHeader color="primary">
-                            <h4 className={classes.cardTitleWhite}>Fiche Pensionnaire</h4>
+                            <h4 className={classes.cardTitleWhite}>Ajouter une installation</h4>
                         </CardHeader>
                         <CardBody>
                             <GridContainer>
@@ -83,4 +82,4 @@ function AddUserPage() {
 
 Install.layout = Admin;
 
-export default AddUserPage;
+export default Install;

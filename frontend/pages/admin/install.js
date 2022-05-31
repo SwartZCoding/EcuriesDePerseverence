@@ -52,7 +52,7 @@ function Installations({ data }) {
                 <Card>
                     <CardHeader color="primary">
                         <h4 className={classes.cardTitleWhite}>Liste des Installations</h4>
-                        <Link href="/admin/register/register-install" key="register-install">Ajouter une installation</Link>
+                        <Link href="/admin/register/install" key="register-install">Ajouter une installation</Link>
                     </CardHeader>
                     <CardBody>
                         <Table

@@ -54,7 +54,7 @@ function Pensionnaire({ data }) {
         <Card>
           <CardHeader color="primary">
             <h4 className={classes.cardTitleWhite}>Liste des Utilisateurs</h4>
-            <Link href="/admin/register/register-user" key="register-user">Ajouter un utilisateur</Link>
+            <Link href="/admin/register/user" key="register-user">Ajouter un utilisateur</Link>
           </CardHeader>
           <CardBody>
             <Table
