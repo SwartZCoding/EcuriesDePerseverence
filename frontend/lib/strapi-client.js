@@ -10,7 +10,7 @@ export default class StrapiClient {
 		console.log("cookie : ", cookies.jwt_ecuries)
 		let bearer = null;
 		if (cookies.jwt_ecuries) {
-			const bearer = `Bearer ${cookies.jwt_ecuries}`
+			bearer = `Bearer ${cookies.jwt_ecuries}`
 			console.log("bearer : ", bearer)
 		}
 		const { data } = await axios.get(`${process.env.STRAPI_CLIENT_URL}${path}`, {
@@ -21,5 +21,22 @@ export default class StrapiClient {
 		});
 		return data;
 	}
+	
+	// async postData(ctx, path, data) {
+	// 	const cookies = parseCookies(ctx)
+	// 	console.log("cookie : ", cookies.jwt_ecuries)
+	// 	let bearer = null;
+	// 	if (cookies.jwt_ecuries) {
+	// 		const bearer = `Bearer ${cookies.jwt_ecuries}`
+	// 		console.log("bearer : ", bearer)
+	// 	}
+	// 	const { data } = await axios.post(`${process.env.STRAPI_CLIENT_URL}${path}`, data, {
+	// 		headers: {
+	// 			Authorization:
+	// 				bearer
+	// 		}
+	// 	});
+	// 	return data;
+	// }
 	
 }
