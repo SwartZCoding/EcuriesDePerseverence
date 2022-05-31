@@ -67,9 +67,9 @@ function Installations({ data }) {
     );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(ctx) {
     const client = new StrapiClient();
-    const install = await client.fetchData("/installations");
+    const install = await client.fetchData(ctx, "/installations");
     console.log(install);
     const nothing = "Aucune donnée";
     let data = [];

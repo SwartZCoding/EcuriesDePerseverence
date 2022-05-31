@@ -67,9 +67,9 @@ function Documents({ data }) {
 }
 
 // TODO
-export async function getServerSideProps(context) {
+export async function getServerSideProps(ctx) {
     const client = new StrapiClient();
-    const horses = await client.fetchData("/documents");
+    const horses = await client.fetchData(ctx, "/documents");
     const nothing = "Aucune donnée";
     let data = [];
     for (let i in horses.data) {
