@@ -3,9 +3,7 @@ import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
-import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
-import Language from "@material-ui/icons/Language";
 
 const dashboardRoutes = [
     {
@@ -39,7 +37,7 @@ const dashboardRoutes = [
     {
         path: "/calendar",
         name: "Calendrier",
-        icon: LibraryBooks,
+        icon: Notifications,
 
         layout: "/admin",
     },
