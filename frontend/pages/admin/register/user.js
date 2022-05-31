@@ -16,6 +16,9 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
 import avatar from "assets/img/faces/marc.jpg";
+import StrapiClient from "../../../lib/strapi-client";
+import axios from "axios";
+import {setCookie} from "nookies";
 
 const styles = {
     cardCategoryWhite: {
@@ -137,6 +140,20 @@ function AddUserPage() {
             </GridContainer>
         </div>
     );
+}
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await axios.post(`${process.env.STRAPI_CLIENT_URL}/users`, userData)
+        .then((response) => {
+            console.log('Well done!');
+            console.log('User profile', response.data.user);
+            console.log('User token', response.data.jwt);
+        })
+        .catch((error) => {
+            console.log('An error occurred:', error.response);
+        });
 }
 
 AddUserPage.layout = Admin;

@@ -11,12 +11,8 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
-import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-
-import avatar from "assets/img/faces/marc.jpg";
-import Install from "../install";
 
 const styles = {
     cardCategoryWhite: {
@@ -37,7 +33,7 @@ const styles = {
     },
 };
 
-function AddUserPage() {
+function Calendar() {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
     return (
@@ -46,13 +42,13 @@ function AddUserPage() {
                 <GridItem xs={12} sm={12} md={8}>
                     <Card>
                         <CardHeader color="primary">
-                            <h4 className={classes.cardTitleWhite}>Fiche Pensionnaire</h4>
+                            <h4 className={classes.cardTitleWhite}>Ajouter un évènement</h4>
                         </CardHeader>
                         <CardBody>
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={6}>
                                     <CustomInput
-                                        labelText="Nom de l'espace"
+                                        labelText="Nom de l'evènement"
                                         id="name"
                                         formControlProps={{
                                             fullWidth: true,
@@ -61,8 +57,29 @@ function AddUserPage() {
                                 </GridItem>
                                 <GridItem xs={12} sm={12} md={6}>
                                     <CustomInput
-                                        labelText="Disponibilitée"
-                                        id="available"
+                                        labelText="Date (Format: JJ/MM/AA HH:MM)"
+                                        id="date"
+                                        formControlProps={{
+                                            fullWidth: true,
+                                        }}
+                                    />
+                                </GridItem>
+                            </GridContainer>
+
+                            <GridContainer>
+                                <GridItem xs={12} sm={12} md={6}>
+                                    <CustomInput
+                                        labelText="Email #1"
+                                        id="email-1"
+                                        formControlProps={{
+                                            fullWidth: true,
+                                        }}
+                                    />
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={6}>
+                                    <CustomInput
+                                        labelText="Email #2"
+                                        id="email-2"
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
@@ -71,7 +88,7 @@ function AddUserPage() {
                             </GridContainer>
                         </CardBody>
                         <CardFooter>
-                            <Button color="primary">Créer une installation</Button>
+                            <Button color="primary">Créer l'évènement</Button>
                         </CardFooter>
                     </Card>
                 </GridItem>
@@ -80,7 +97,6 @@ function AddUserPage() {
     );
 }
 
+Calendar.layout = Admin;
 
-Install.layout = Admin;
-
-export default AddUserPage;
+export default Calendar;

@@ -37,6 +37,13 @@ const dashboardRoutes = [
         layout: "/admin",
     },
     {
+        path: "/calendar",
+        name: "Calendrier",
+        icon: LibraryBooks,
+
+        layout: "/admin",
+    },
+    {
         path: "/documents",
         name: "Documents",
         icon: LibraryBooks,

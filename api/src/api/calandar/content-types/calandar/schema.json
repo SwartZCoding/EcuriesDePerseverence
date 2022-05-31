@@ -23,6 +23,12 @@
     },
     "description": {
       "type": "string"
+    },
+    "firstMail": {
+      "type": "email"
+    },
+    "secondMail": {
+      "type": "email"
     }
   }
 }

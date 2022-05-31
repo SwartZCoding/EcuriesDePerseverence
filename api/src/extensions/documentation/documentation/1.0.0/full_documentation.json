@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-05-30T07:45:04.041Z"
+    "x-generation-date": "2022-05-31T15:24:31.646Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -27,7 +27,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "http://localhost:1338/api",
       "description": "Development server"
     }
   ],
@@ -83,6 +83,14 @@
                               },
                               "description": {
                                 "type": "string"
+                              },
+                              "firstMail": {
+                                "type": "string",
+                                "format": "email"
+                              },
+                              "secondMail": {
+                                "type": "string",
+                                "format": "email"
                               },
                               "createdAt": {
                                 "type": "string",
@@ -678,6 +686,14 @@
                             "description": {
                               "type": "string"
                             },
+                            "firstMail": {
+                              "type": "string",
+                              "format": "email"
+                            },
+                            "secondMail": {
+                              "type": "string",
+                              "format": "email"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -1161,6 +1177,14 @@
                       "description": {
                         "type": "string"
                       },
+                      "firstMail": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "secondMail": {
+                        "type": "string",
+                        "format": "email"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -1235,6 +1259,14 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "firstMail": {
+                              "type": "string",
+                              "format": "email"
+                            },
+                            "secondMail": {
+                              "type": "string",
+                              "format": "email"
                             },
                             "createdAt": {
                               "type": "string",
@@ -1739,6 +1771,14 @@
                             "description": {
                               "type": "string"
                             },
+                            "firstMail": {
+                              "type": "string",
+                              "format": "email"
+                            },
+                            "secondMail": {
+                              "type": "string",
+                              "format": "email"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -2232,6 +2272,14 @@
                       },
                       "description": {
                         "type": "string"
+                      },
+                      "firstMail": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "secondMail": {
+                        "type": "string",
+                        "format": "email"
                       },
                       "createdAt": {
                         "type": "string",
