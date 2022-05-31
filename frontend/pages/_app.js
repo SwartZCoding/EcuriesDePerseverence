@@ -50,7 +50,7 @@ export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
     const cookies = parseCookies(ctx)
-    console.log("cookies : ", cookies.jwt_ecuries, "\nRoute : ", router.pathname)
+    console.log("cookies : ", cookies.jwt_ecuries, "\nBool : ", cookies.jwt_ecuries === undefined, "\nRoute : ", router.pathname)
     if(cookies.jwt_ecuries === undefined && router.pathname !== "/login") {
         this.redirectUser(ctx, ctx.res, ctx.req, "/login")
     }

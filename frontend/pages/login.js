@@ -1,15 +1,17 @@
 import axios from 'axios';
-import {useState} from "react";
+import React, {useState} from "react";
 import {nookies, parseCookies, setCookie} from 'nookies'
 import styles from "assets/jss/nextjs-material-dashboard/views/dashboardStyle.js";
 import {makeStyles} from "@material-ui/core/styles";
 import logo from "assets/img/logo.webp";
+import Router, {useRouter} from "next/router";
 
 const Login = (ctx) => {
 
 	const useStyles = makeStyles(styles);
 	const classes = useStyles();
-
+	const router = useRouter();
+	
 	const [userData, setUserData] = useState({
 		identifier: '',
 		password: '',
@@ -20,18 +22,19 @@ const Login = (ctx) => {
 		
 		await axios.post(`${process.env.STRAPI_CLIENT_URL}/auth/local`, userData)
 			.then((response) => {
-				console.log('Well done!');
-				console.log('User profile', response.data.user);
-				console.log('User token', response.data.jwt);
+				// console.log('Well done!');
+				// console.log('User profile', response.data.user);
+				// console.log('User token', response.data.jwt);
 				setCookie(null, 'jwt_ecuries', response.data.jwt, {
 					// httpOnly: true,
 					maxAge: 7 * 24 * 60 * 60,
 					path: '/',
 				})
-			})
-			.catch((error) => {
+				router.push("/admin/dashboard")
+			}).catch((error) => {
 				console.log('An error occurred:', error.response);
 			});
+		
 	}
 	
 	

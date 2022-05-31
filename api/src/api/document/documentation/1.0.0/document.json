@@ -1314,6 +1314,9 @@
                                               }
                                             }
                                           },
+                                          "address": {
+                                            "type": "string"
+                                          },
                                           "createdAt": {
                                             "type": "string",
                                             "format": "date-time"
@@ -2981,6 +2984,9 @@
                                             }
                                           }
                                         },
+                                        "address": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -4620,6 +4626,9 @@
                                             }
                                           }
                                         },
+                                        "address": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -6195,6 +6204,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "address": {
+                                          "type": "string"
                                         },
                                         "createdAt": {
                                           "type": "string",

@@ -19,6 +19,8 @@ import avatar from "assets/img/faces/marc.jpg";
 import StrapiClient from "../../../lib/strapi-client";
 import axios from "axios";
 import {setCookie} from "nookies";
+import {useState} from "react";
+import {useRouter} from "next/router";
 
 const styles = {
     cardCategoryWhite: {
@@ -42,10 +44,43 @@ const styles = {
 function AddUserPage() {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
+    const router = new useRouter();
+    
+    const [userData, setUserData] = useState({
+        username: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        phone: '',
+        address: '',
+    })
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        userData.username = `${userData.firstName} ${userData.lastName}`
+        console.log("userData : ", userData)
+        const strapiClient = new StrapiClient();
+        await strapiClient.postData(null, "/users", userData)
+          .catch((error) => {
+              console.log('An error occurred:', error.response);
+          });
+        //router.push("/admin/users")
+        
+        
+    }
+    
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUserData({...userData, [name]: value });
+    }
+    
     return (
         <div>
             <GridContainer>
                 <GridItem xs={12} sm={12} md={8}>
+                    <form onSubmit={handleSubmit}>
                     <Card>
                         <CardHeader color="primary">
                             <h4 className={classes.cardTitleWhite}>Fiche Utilisateur</h4>
@@ -59,6 +94,11 @@ function AddUserPage() {
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
+                                        inputProps={{
+                                            name: "firstName",
+                                            onChange: (e) => handleChange(e)
+                                        }}
+                                        
                                     />
                                 </GridItem>
                                 <GridItem xs={12} sm={12} md={6}>
@@ -68,6 +108,10 @@ function AddUserPage() {
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
+                                        inputProps={{
+                                            name: "lastName",
+                                            onChange: (e) => handleChange(e)
+                                        }}
                                     />
                                 </GridItem>
                             </GridContainer>
@@ -75,9 +119,13 @@ function AddUserPage() {
                                 <GridItem xs={12} sm={12} md={4}>
                                     <CustomInput
                                         labelText="Adresse Mail"
-                                        id="email-address"
+                                        id="email"
                                         formControlProps={{
                                             fullWidth: true,
+                                        }}
+                                        inputProps={{
+                                            name: "email",
+                                            onChange: (e) => handleChange(e)
                                         }}
                                     />
                                 </GridItem>
@@ -89,6 +137,11 @@ function AddUserPage() {
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
+                                        inputProps={{
+                                            type: "password",
+                                            name: "password",
+                                            onChange: (e) => handleChange(e)
+                                        }}
                                     />
                                 </GridItem>
 
@@ -99,61 +152,38 @@ function AddUserPage() {
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
+                                        inputProps={{
+                                            name: "phone",
+                                            onChange: (e) => handleChange(e)
+                                        }}
                                     />
                                 </GridItem>
                             </GridContainer>
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={4}>
                                     <CustomInput
-                                        labelText="Ville"
-                                        id="city"
+                                        labelText="Adresse"
+                                        id="address"
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
-                                    />
-                                </GridItem>
-                                <GridItem xs={12} sm={12} md={4}>
-                                    <CustomInput
-                                        labelText="Pays"
-                                        id="country"
-                                        formControlProps={{
-                                            fullWidth: true,
-                                        }}
-                                    />
-                                </GridItem>
-                                <GridItem xs={12} sm={12} md={4}>
-                                    <CustomInput
-                                        labelText="Code Postal"
-                                        id="postal-code"
-                                        formControlProps={{
-                                            fullWidth: true,
+                                        inputProps={{
+                                            name: "address",
+                                            onChange: (e) => handleChange(e)
                                         }}
                                     />
                                 </GridItem>
                             </GridContainer>
                         </CardBody>
                         <CardFooter>
-                            <Button color="primary">Créer le compte</Button>
+                            <Button type="submit" color="primary">Créer le compte</Button>
                         </CardFooter>
                     </Card>
+                    </form>
                 </GridItem>
             </GridContainer>
         </div>
     );
-}
-
-const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    await axios.post(`${process.env.STRAPI_CLIENT_URL}/users`, userData)
-        .then((response) => {
-            console.log('Well done!');
-            console.log('User profile', response.data.user);
-            console.log('User token', response.data.jwt);
-        })
-        .catch((error) => {
-            console.log('An error occurred:', error.response);
-        });
 }
 
 AddUserPage.layout = Admin;
