@@ -82,6 +82,6 @@ export async function getServerSideProps(context) {
     return { props: { data } };
 }
 
-Pensionnaire.layout = Admin;
+Pensionnaires.layout = Admin;
 
-export default Pensionnaire;
+export default Pensionnaires;
