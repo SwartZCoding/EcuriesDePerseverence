@@ -20,11 +20,14 @@ import Button from "components/CustomButtons/Button.js";
 import useWindowSize from "components/Hooks/useWindowSize.js";
 
 import styles from "assets/jss/nextjs-material-dashboard/components/headerLinksStyle.js";
+import {destroyCookie} from "nookies";
+import {useRouter} from "next/router";
 
 export default function AdminNavbarLinks() {
   const size = useWindowSize();
   const useStyles = makeStyles(styles);
   const classes = useStyles();
+  const router = new useRouter();
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
   const handleClickNotification = (event) => {
@@ -44,6 +47,12 @@ export default function AdminNavbarLinks() {
       setOpenProfile(event.currentTarget);
     }
   };
+  const logout = (e) => {
+    const { name, value } = e.target;
+    destroyCookie(null, 'jwt_ecuries', { path: '/', })
+    router.push('/login')
+    
+  }
   const handleCloseProfile = () => {
     setOpenProfile(null);
   };
@@ -97,7 +106,8 @@ export default function AdminNavbarLinks() {
                     </MenuItem>
                     <Divider light />
                     <MenuItem
-                      onClick={handleCloseProfile}
+                      onClick={logout}
+                      value="logout"
                       className={classes.dropdownItem}
                     >
                       Se déconnecter
