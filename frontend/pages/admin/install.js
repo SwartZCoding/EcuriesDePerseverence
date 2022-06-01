@@ -74,7 +74,7 @@ export async function getServerSideProps(ctx) {
     const nothing = "Aucune donnée";
     let data = [];
     for (let i in install.data) {
-        data.push([install.data[i].attributes.name, install.data[i].attributes.disponibility]);
+        data.push([install.data[i].attributes.name, install.data[i].attributes.disponibility === true ? "Disponible" : "Non Disponible"]);
     }
 
     if(data.length === 0) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -19,7 +19,6 @@ import avatar from "assets/img/faces/marc.jpg";
 import StrapiClient from "../../../lib/strapi-client";
 import axios from "axios";
 import {setCookie} from "nookies";
-import {useState} from "react";
 import {useRouter} from "next/router";
 
 const styles = {
@@ -65,11 +64,10 @@ function AddUserPage() {
           .catch((error) => {
               console.log('An error occurred:', error.response);
           });
-        //router.push("/admin/users")
+        router.push("/admin/users")
         
         
     }
-    
     
     const handleChange = (e) => {
         const { name, value } = e.target;

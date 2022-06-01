@@ -16,6 +16,9 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
 import avatar from "assets/img/faces/marc.jpg";
+import {useRouter} from "next/router";
+import {useState} from "react";
+import StrapiClient from "../../../lib/strapi-client";
 
 const styles = {
     cardCategoryWhite: {
@@ -39,10 +42,42 @@ const styles = {
 function AddUserPage() {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
+    const router = new useRouter();
+    
+    const [data, setData] = useState({
+            name: '',
+            genre: '',
+            birthday: '',
+            weight: '',
+            race: '',
+    })
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const strapiClient = new StrapiClient();
+        const horses = {
+            data
+        }
+        console.log("data : ", horses)
+        await strapiClient.postData(null, "/horses", horses)
+          .catch((error) => {
+              console.log('An error occurred:', error.response);
+          });
+        router.push("/admin/pensionnaire")
+        
+        
+    }
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData({...data, [name]: value });
+    }
+    
     return (
         <div>
             <GridContainer>
                 <GridItem xs={12} sm={12} md={8}>
+                    <form onSubmit={handleSubmit}>
                     <Card>
                         <CardHeader color="primary">
                             <h4 className={classes.cardTitleWhite}>Fiche Pensionnaire</h4>
@@ -56,6 +91,10 @@ function AddUserPage() {
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
+                                        inputProps={{
+                                            name: "name",
+                                            onChange: (e) => handleChange(e)
+                                        }}
                                     />
                                 </GridItem>
                                 <GridItem xs={12} sm={12} md={6}>
@@ -64,6 +103,10 @@ function AddUserPage() {
                                         id="gender"
                                         formControlProps={{
                                             fullWidth: true,
+                                        }}
+                                        inputProps={{
+                                            name: "genre",
+                                            onChange: (e) => handleChange(e)
                                         }}
                                     />
                                 </GridItem>
@@ -76,6 +119,10 @@ function AddUserPage() {
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
+                                        inputProps={{
+                                            name: "birthday",
+                                            onChange: (e) => handleChange(e)
+                                        }}
                                     />
                                 </GridItem>
 
@@ -85,6 +132,10 @@ function AddUserPage() {
                                         id="weight"
                                         formControlProps={{
                                             fullWidth: true,
+                                        }}
+                                        inputProps={{
+                                            name: "weight",
+                                            onChange: (e) => handleChange(e)
                                         }}
                                     />
                                 </GridItem>
@@ -96,14 +147,19 @@ function AddUserPage() {
                                         formControlProps={{
                                             fullWidth: true,
                                         }}
+                                        inputProps={{
+                                            name: "race",
+                                            onChange: (e) => handleChange(e)
+                                        }}
                                     />
                                 </GridItem>
                             </GridContainer>
                         </CardBody>
                         <CardFooter>
-                            <Button color="primary">Créer le pensionnaire</Button>
+                            <Button type="submit" color="primary">Créer le pensionnaire</Button>
                         </CardFooter>
                     </Card>
+                    </form>
                 </GridItem>
             </GridContainer>
         </div>
